@@ -9,7 +9,7 @@ public class OnStartBlockPlacing : MonoBehaviour
     [SerializeField] private Transform topWall, bottomWall, ball, player1, player2, goalBlock1, goalBlock2, middleLine;
     private float screenWidth, screenHeight;
 
-    private void Awake()
+    private void Start()
     {
         GameObject.Find("Game Manager").GetComponent<EventsController>().onRestarted.AddListener(Restart);
         //getting usefull info for later
@@ -38,13 +38,20 @@ public class OnStartBlockPlacing : MonoBehaviour
         //setup middle line
         middleLine.localScale = new Vector3(0.05f, screenHeight);
         middleLine.position = Vector3.zero;
+        StartCoroutine(FreezeGame());
     }
 
     private void Restart()
     {
-        player1.localScale = new Vector3(screenWidth / 72, screenHeight / 5f);
+        player1.localScale = new Vector3(screenWidth / 72, screenWidth / 8f);
         player1.position = new Vector3(-screenWidth / 2.2f, 0);
-        player2.localScale = new Vector3(screenWidth / 72, screenHeight / 5f);
+        player2.localScale = new Vector3(screenWidth / 72, screenWidth / 8f);
         player2.position = new Vector3(screenWidth / 2.2f, 0);
+    }
+    IEnumerator FreezeGame()
+    {
+        Time.timeScale = 0;
+        yield return new WaitForSecondsRealtime(1);
+        Time.timeScale = 1;
     }
 }

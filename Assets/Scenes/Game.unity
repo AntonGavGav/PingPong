@@ -325,6 +325,7 @@ GameObject:
   - component: {fileID: 275226477}
   - component: {fileID: 275226476}
   - component: {fileID: 275226478}
+  - component: {fileID: 275226479}
   m_Layer: 0
   m_Name: Goal Block 1
   m_TagString: goal
@@ -423,6 +424,19 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
+--- !u!114 &275226479
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 275226475}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 37543157611fe1e43ace64ff1eab94cf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  textMesh: {fileID: 751559554}
 --- !u!1 &519420028
 GameObject:
   m_ObjectHideFlags: 0
@@ -627,7 +641,7 @@ GameObject:
   - component: {fileID: 751559555}
   - component: {fileID: 751559554}
   m_Layer: 5
-  m_Name: Text (TMP) (1)
+  m_Name: 2 player count
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -647,11 +661,11 @@ RectTransform:
   m_Father: {fileID: 1060665240}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 350, y: 140}
+  m_AnchorMin: {x: 1, y: 1}
+  m_AnchorMax: {x: 1, y: 1}
+  m_AnchoredPosition: {x: -34.000122, y: -83}
   m_SizeDelta: {x: 200, y: 50}
-  m_Pivot: {x: 0.5, y: 0.5}
+  m_Pivot: {x: 1, y: 1}
 --- !u!114 &751559554
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -928,7 +942,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a192cc0c4a48f654b99c7275e6b8f4e3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 4
 --- !u!50 &1004961091
 Rigidbody2D:
   serializedVersion: 4
@@ -1024,12 +1037,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0cd44c1031e13a943bb63640046fad76, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_UiScaleMode: 0
+  m_UiScaleMode: 1
   m_ReferencePixelsPerUnit: 100
   m_ScaleFactor: 1
   m_ReferenceResolution: {x: 800, y: 600}
   m_ScreenMatchMode: 0
-  m_MatchWidthOrHeight: 0
+  m_MatchWidthOrHeight: 0.5
   m_PhysicalUnit: 3
   m_FallbackScreenDPI: 96
   m_DefaultSpriteDPI: 96
@@ -1089,7 +1102,7 @@ GameObject:
   - component: {fileID: 1292333519}
   - component: {fileID: 1292333518}
   m_Layer: 5
-  m_Name: Text (TMP)
+  m_Name: 1 player count
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1109,11 +1122,11 @@ RectTransform:
   m_Father: {fileID: 1060665240}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -350, y: 140}
-  m_SizeDelta: {x: 200, y: 50}
-  m_Pivot: {x: 0.5, y: 0.5}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 34, y: -83}
+  m_SizeDelta: {x: 201, y: 50}
+  m_Pivot: {x: 0, y: 1}
 --- !u!114 &1292333518
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1288,6 +1301,7 @@ GameObject:
   - component: {fileID: 1399381268}
   - component: {fileID: 1399381267}
   - component: {fileID: 1399381269}
+  - component: {fileID: 1399381270}
   m_Layer: 0
   m_Name: Goal Block 2
   m_TagString: goal
@@ -1386,6 +1400,19 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
+--- !u!114 &1399381270
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1399381266}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 37543157611fe1e43ace64ff1eab94cf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  textMesh: {fileID: 1292333518}
 --- !u!1 &1768599876
 GameObject:
   m_ObjectHideFlags: 0
@@ -1465,7 +1492,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a192cc0c4a48f654b99c7275e6b8f4e3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 4
 --- !u!212 &1768599880
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -1675,4 +1701,3 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d60693643ae6dda47832bd5b04d88ba2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 3

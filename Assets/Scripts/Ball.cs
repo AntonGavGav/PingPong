@@ -6,12 +6,14 @@ using Random = UnityEngine.Random;
 
 public class Ball : MonoBehaviour
 {
-    [SerializeField] private float speed;
+    private float speed;
     private EventsController eventController;
     private Rigidbody2D rb;
 
     private void Start()
     { 
+        float screenHeight = 1 / (Camera.main.WorldToViewportPoint(new Vector3(1, 1, 0)).y - .5f);
+        speed = screenHeight / 2.5f;
         rb = GetComponent<Rigidbody2D>();
         eventController = GameObject.Find("Game Manager").GetComponent<EventsController>();
         float x = Random.Range(0, 2) == 0 ? -1 : 1; 
@@ -23,6 +25,7 @@ public class Ball : MonoBehaviour
     {
         if (other.collider.CompareTag("goal"))
         {
+            other.gameObject.SendMessage("ApplyGoal");
             StartCoroutine(FreezeGame());
             eventController.Restart();
             transform.position = Vector3.zero;

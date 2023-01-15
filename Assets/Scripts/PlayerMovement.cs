@@ -13,14 +13,16 @@ public class PlayerMovement : MonoBehaviour
         Downwards
     }
 
-    [SerializeField] private float speed = 1f;
+    private float speed;
 
     private MoveDirection currentDirection;
     
     private void Start()
     {
+        float screenHeight = 1 / (Camera.main.WorldToViewportPoint(new Vector3(1, 1, 0)).y - .5f);
         GameObject.Find("Game Manager").GetComponent<EventsController>().onRestarted.AddListener(RandomDir);
         currentDirection = (MoveDirection)Random.Range(0, 2);
+        speed = screenHeight / 3;
     }
 
     private void Update()
@@ -44,19 +46,32 @@ public class PlayerMovement : MonoBehaviour
 
     public void ChangeDirection()
     {
+        Vector3 startingPoint;
         if (currentDirection == MoveDirection.Upwards)
         {
             currentDirection = MoveDirection.Downwards;
+            startingPoint = transform.position;
         }
         else
         {
             currentDirection = MoveDirection.Upwards;
+            startingPoint = transform.position;
         }
+
+        StartCoroutine(CheckIfMoving(startingPoint));
+
     }
 
     private void RandomDir()
     {
         currentDirection = (MoveDirection)Random.Range(0, 2);
     }
-    
+    IEnumerator CheckIfMoving(Vector3 startingPoint)
+    {
+        yield return new WaitForSecondsRealtime(0.2f);
+        if (startingPoint == transform.position)
+        {
+            ChangeDirection();
+        }
+    }
 }
