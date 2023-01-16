@@ -16,6 +16,7 @@ public class PlayerMovement : MonoBehaviour
     private float speed;
 
     private MoveDirection currentDirection;
+    private bool canChangeDirection = true;
     
     private void Start()
     {
@@ -46,32 +47,25 @@ public class PlayerMovement : MonoBehaviour
 
     public void ChangeDirection()
     {
-        Vector3 startingPoint;
-        if (currentDirection == MoveDirection.Upwards)
+        if (canChangeDirection)
         {
-            currentDirection = MoveDirection.Downwards;
-            startingPoint = transform.position;
-        }
-        else
-        {
-            currentDirection = MoveDirection.Upwards;
-            startingPoint = transform.position;
-        }
+            canChangeDirection = false;
+            Vector3 startingPoint;
+            if (currentDirection == MoveDirection.Upwards)
+            {
+                currentDirection = MoveDirection.Downwards;
+            }
+            else
+            {
+                currentDirection = MoveDirection.Upwards;
+            }
 
-        StartCoroutine(CheckIfMoving(startingPoint));
-
+            canChangeDirection = true;
+        }
     }
 
     private void RandomDir()
     {
         currentDirection = (MoveDirection)Random.Range(0, 2);
-    }
-    IEnumerator CheckIfMoving(Vector3 startingPoint)
-    {
-        yield return new WaitForSecondsRealtime(0.2f);
-        if (startingPoint == transform.position)
-        {
-            ChangeDirection();
-        }
     }
 }
